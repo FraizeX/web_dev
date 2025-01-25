@@ -26,3 +26,4 @@ public
 src
 .prettierrc
 package.json
+package-lock.json
