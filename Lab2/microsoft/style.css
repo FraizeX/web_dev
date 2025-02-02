@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+}
+
+/* Навигация */
+header {
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-top {
+    display: flex;
+    gap: 30px;
+    padding: 10px 20px;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.nav-top .logo {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 80px;
+    margin-top: 3px;
+}
+.logo img {
+    width: 25px;
+
+}
+
+.nav-top nav {
+    display: flex;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.nav-top a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.nav-icons {
+    margin-left: 700px;
+}
+
+/* Баннер */
+.banner {
+    background-color: #0078d4;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    height: 70px;
+
+}
+
+.banner a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* Главный баннер */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-content {
+    position: absolute;
+    width: 700px;
+    background-color: white;
+    padding: 40px;
+    margin-left: 110px;
+    margin-bottom: 300px;
+}
+
+.hero-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #0078d4;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.hero-image img {
+    width: 1903px;
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Категории */
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 120px;
+
+}
+
+.category a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #0078d4;
+}
+
+/* Продукты */
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 30px;
+    margin-top: 70px;
+    margin-left: 110px;
+    margin-right: 110px;
+    gap: 25px;
+
+}
+
+.product {
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 3px;
+}
+
+.product img {
+    width: 390px;
+    height: 200px;
+    margin-bottom: 5px;
+    object-fit: fill;
+}
+
+.product h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.product p {
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 10px;
+}
+
+.product .btn {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
