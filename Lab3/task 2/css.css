@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background-color: black;
+    color: #b3b3b3;
+    position: relative;
+    height: 70px;
+    bottom: 13px;
+    font-weight: lighter;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.banner p {
+    font-size: 20px;
+    margin-top: 27px;
+    margin-left: 40px;
+}
+
+.name {
+    font-size: 20px;
+    margin-left: 520px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.menu {
+    display: flex;
+    margin-left: 570px;
+    margin-bottom: 20px;
+}
+
+.menu input[type="text"] {
+    padding: 10px;
+    width: 650px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.menu .add-button {
+    padding: 10px 20px;
+    background-color: hsl(213, 70%, 44%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+fieldset {
+    border: 0px;
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    margin-left: 530px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    width: 100%;
+    max-width: 820px;
+    margin-bottom: -3px;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-item .task-text {
+    flex-grow: 1;
+}
+
+.task-item .delete-button {
+    border: none;
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 35px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+
+.task-text.completed {
+    text-decoration: line-through;
+    color: #888;
+}
