@@ -22,8 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-public
-src
+C:\Users\mrfra\WebstormProjects\web_dev\public
 .prettierrc
 package.json
 package-lock.json
