@@ -27,3 +27,5 @@ src
 .prettierrc
 package.json
 package-lock.json
+README.md
+angularfile
