@@ -1,0 +1,34 @@
+header {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 20px auto;
+}
+.categories {
+  margin-bottom: 20px;
+}
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+.categories li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.categories button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+.categories button:hover {
+  background-color: #0056b3;
+}

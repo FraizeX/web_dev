@@ -1,0 +1,26 @@
+<div class="product-card">
+  <!-- Основное изображение продукта -->
+  <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+  <div class="product-details">
+    <h3>{{ product.name }}</h3>
+    <p>{{ product.description }}</p>
+    <p>Рейтинг: {{ product.rating }}</p>
+    <p>Лайков: {{ product.likes }}</p>
+
+    <a [href]="product.link" target="_blank">Посмотреть на Kaspi.kz</a>
+  </div>
+  <div class="product-actions">
+    <button (click)="likeProduct()">Like</button>
+    <button (click)="removeProduct()">Remove</button>
+  </div>
+  <div class="gallery" *ngIf="product.gallery && product.gallery.length">
+    <h4>Галерея</h4>
+    <div class="gallery-images">
+      <img *ngFor="let img of product.gallery" [src]="img" alt="{{ product.name }}" class="gallery-image" />
+    </div>
+  </div>
+  <div class="share-buttons">
+    <button (click)="shareProduct('whatsapp')">Share on WhatsApp</button>
+    <button (click)="shareProduct('telegram')">Share on Telegram</button>
+  </div>
+</div>

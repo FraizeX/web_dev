@@ -1,0 +1,18 @@
+<header>
+  <h1>Online Store</h1>
+</header>
+<div class="container">
+  <div class="categories">
+    <h2>Категории</h2>
+    <ul>
+      <li *ngFor="let category of categories">
+        <!-- При клике вызывается метод selectCategory -->
+        <button (click)="selectCategory(category.id)">{{ category.name }}</button>
+      </li>
+    </ul>
+  </div>
+  <!-- Отображает список продуктов только если выбрана категория -->
+  <div *ngIf="selectedCategoryId !== null">
+    <app-product-list [categoryId]="selectedCategoryId!"></app-product-list>
+  </div>
+</div>
