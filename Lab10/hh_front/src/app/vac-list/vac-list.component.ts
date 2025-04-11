@@ -16,14 +16,19 @@ export class VacListComponent implements OnInit {
 
   constructor(private vacancyService: VacancyService, private activatedRoute: ActivatedRoute) {}
   ngOnInit() {
-    this.companyId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.getVacanciesListByCompany();
+    const companyId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.loadVacancies(companyId);
   }
 
-  getVacanciesListByCompany() {
-    this.vacancyService.getVacanciesListByCompany(this.companyId).subscribe((vacancies: Vacancy[]) => {
-      this.vacancies = vacancies;
-    })
+  loadVacancies(companyId: number): void {
+    this.vacancyService.getVacanciesListByCompany(companyId).subscribe({
+      next: (vacancies) => {
+        this.vacancies = vacancies;
+      },
+      error: (err) => {
+        console.error('Error loading vacancies:', err);
+      }
+    });
   }
 
 }
