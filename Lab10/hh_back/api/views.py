@@ -1,54 +1,37 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.decorators import api_view
 from .models import Company, Vacancy
 from .serializers import CompanySerializer, VacancySerializer
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 #fbv-s
-@api_view(['GET', 'POST'])
+@csrf_exempt
 def companies_list(request):
     if request.method == 'GET':
-        company = Company.objects.all()
-        serializer = CompanySerializer(company, many=True)
-        return Response(serializer.data)
+        companies = Company.objects.all()
+        serializer = CompanySerializer(companies, many=True)
+        return JsonResponse(serializer.data, safe=False)
 
     elif request.method == 'POST':
-        serializer = CompanySerializer(data=request.data)
+        data = json.loads(request.body)
+        serializer = CompanySerializer(data=data)
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
 
-@api_view(['GET', 'PUT', 'DELETE'])
 def company_detail(request, id):
-    try:
-        company = Company.objects.get(pk=id)
-    except Company.DoesNotExist as e:
-        return Response({'error': str(e)},  status=status.HTTP_404_NOT_FOUND)
+    company = get_object_or_404(Company, id=id)
+    return JsonResponse(company.to_json())
 
-    if request.method == 'GET':
-        serializer = CompanySerializer(company)
-        return Response(serializer.data)
-
-    elif request.method == 'PUT':
-        serializer = CompanySerializer(company, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        company.delete()
-        return Response({'message': 'Company deleted'})
-
-@api_view(['GET'])
 def vacancies_list_by_company(request, id):
-    vacancies = Vacancy.objects.filter(company_id=id)
-    serializer = VacancySerializer(vacancies, many=True)
-    return Response(serializer.data)
+    vacancies_by_company = Vacancy.objects.filter(company__id=id)
+    return JsonResponse([v.to_json() for v in vacancies_by_company], safe=False)
 
 
 
