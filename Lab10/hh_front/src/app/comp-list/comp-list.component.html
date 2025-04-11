@@ -1,0 +1,14 @@
+<h2>Companies</h2>
+<div *ngIf="companies && companies.length; else noCompanies">
+  <ul>
+    <li *ngFor="let company of companies" >
+      <h3>{{ company.name }}</h3>
+      <p>{{ company.description }}</p>
+      <p><strong>City:</strong> {{ company.city }}</p>
+      <p><strong>Address:</strong> {{ company.address }}</p>
+    </li>
+  </ul>
+</div>
+<ng-template #noCompanies>
+  <p>No companies available.</p>
+</ng-template>
